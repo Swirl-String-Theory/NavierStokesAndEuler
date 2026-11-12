@@ -16,13 +16,18 @@
     "lean_exit_code": 0,
     "executed_by": "local",
     "proof_axioms_checked": true,
-    "independent_assistant_execution": true,
-    "accepted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+    "independent_assistant_execution": false,
+    "accepted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
     "local_fix": [
       "unfold clockPrimitive before integral_hasDerivAt_right to unify HasDerivAt instances",
       "silence unused hT binder in clockPrimitive_exists_preimage",
-      "replace deprecated dif_pos with simp only [hτ]"
-    ]
+      "replace deprecated dif_pos with simp only [h\u03c4]"
+    ],
+    "assistant_review": "source inspection only; no independent Lean execution"
   },
   "assumptions": [
     "Continuous q globally",
@@ -38,7 +43,11 @@
     "SSTFormal.inverseClock_endpointCorrespondence",
     "SSTFormal.unboundedNearLeft_iff_after_integrated_clock"
   ],
-  "required_allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "required_allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
   "open_obligations": [
     "physical interval / almost everywhere positive L1 generalization",
     "FV02-C ENNReal Euler C1 norm bridge",

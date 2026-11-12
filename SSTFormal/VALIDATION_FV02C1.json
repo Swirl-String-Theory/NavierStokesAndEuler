@@ -1,0 +1,40 @@
+{
+  "id": "SST-FV02-C1",
+  "name": "SSTFormal ClockEndpoint Euler C1 Bridge",
+  "version": "v0.4.0",
+  "stage": "C1-actual-Euler-C1-and-ENNReal-threshold",
+  "branch_expected": "sst/formal-clock-euler-c1-v0.4.0",
+  "predecessor": {
+    "branch": "sst/formal-clock-endpoint-v0.3.0",
+    "commit_user_reported": "82a4341",
+    "status": "PASS_LOCAL_LEAN_USER_REPORTED"
+  },
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "status": "PASS_LOCAL_LEAN",
+  "execution": {
+    "script": "run_sstformal_clockeulerc1_v0.4.0.cmd",
+    "lean_exit_code": 0,
+    "executed_by": "local",
+    "proof_axioms_checked": true,
+    "independent_assistant_execution": false,
+    "accepted_axioms": ["propext", "Classical.choice", "Quot.sound"]
+  },
+  "theorem_targets": [
+    "SSTFormal.eulerC1RealProfile_eq",
+    "SSTFormal.eulerC1RealProfile_unboundedNearLeft",
+    "SSTFormal.eulerC1_unbounded_after_integrated_clock",
+    "SSTFormal.ennUnboundedNearLeft_of_real",
+    "SSTFormal.eulerC1ENN_unbounded_after_integrated_clock",
+    "SSTFormal.eulerC1_ofReal_eq_comparator"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "open_obligations": [
+    "FV02-C2 direct Filter.limsup statement under inverse clock",
+    "global clock foliation vs local trajectory clocks",
+    "active feedback not tested"
+  ]
+}
