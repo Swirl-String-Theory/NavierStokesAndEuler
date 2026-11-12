@@ -1,0 +1,57 @@
+{
+  "id": "SST-FV02B",
+  "name": "SSTFormal ClockEndpoint",
+  "version": "v0.3.0",
+  "stage": "B-integrated-clock-inverse",
+  "branch_expected": "sst/formal-clock-endpoint-v0.3.0",
+  "predecessor": {
+    "branch": "sst/formal-clock-endpoint-v0.2.0",
+    "commit_user_reported": "553a61f",
+    "status": "PASS_LOCAL_LEAN_USER_REPORTED"
+  },
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "status": "PASS_LOCAL_LEAN",
+  "execution": {
+    "script": "run_sstformal_clockintegral_v0.3.0.cmd",
+    "lean_exit_code": 0,
+    "executed_by": "local",
+    "proof_axioms_checked": true,
+    "independent_assistant_execution": false,
+    "accepted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "local_fix": [
+      "unfold clockPrimitive before integral_hasDerivAt_right to unify HasDerivAt instances",
+      "silence unused hT binder in clockPrimitive_exists_preimage",
+      "replace deprecated dif_pos with simp only [h\u03c4]"
+    ],
+    "assistant_review": "source inspection only; no independent Lean execution"
+  },
+  "assumptions": [
+    "Continuous q globally",
+    "forall real t, 0 < q t",
+    "0 < T",
+    "real-valued scalar observable f"
+  ],
+  "theorem_targets": [
+    "SSTFormal.clockPrimitive_hasDerivAt",
+    "SSTFormal.clockPrimitive_strictMono",
+    "SSTFormal.clockPrimitive_exists_preimage",
+    "SSTFormal.inverseClock_spec",
+    "SSTFormal.inverseClock_endpointCorrespondence",
+    "SSTFormal.unboundedNearLeft_iff_after_integrated_clock"
+  ],
+  "required_allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "open_obligations": [
+    "physical interval / almost everywhere positive L1 generalization",
+    "FV02-C ENNReal Euler C1 norm bridge",
+    "spatially dependent clock foliation",
+    "active feedback is not tested"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "errors": [],
+  "evidence": {
+    "build_log": "C:\\workspace\\projects\\NavierStokesAndEuler\\sstformal_eulerfeedback_v0.1.0_build.log",
+    "build_log_sha256": "27023e582022348d95260e379566434ae0ccf98638f12a83198649e1b0cd5ddb",
+    "source_sha256": {
+      "SSTFormal/EulerFeedback/EulerianTransfer.lean": "324f13c5053f73612f1fa1527f05de05a2238b73faee597a4688eedbe012431d",
+      "SSTFormal/EulerFeedback/StretchingBound.lean": "0bdd4c129f1b1ecb6f081b780b7014677bc667e99fbfe125843ccf9d4dd09f65",
+      "SSTFormal/EulerFeedback/VorticityBound.lean": "b6e7db9a36fe376ee97ed68dc92e6c93195b2b69ef2e729625b74c4ae1cdbea3"
+    }
+  },
+  "execution": {
+    "comparator_executed": false,
+    "executed_by": "user_local",
+    "gpu_backend_executed": false,
+    "independent_assistant_execution": false
+  },
+  "git": {
+    "branch": "sst/formal-euler-feedback-v0.1.0",
+    "commit": "65f0c271725f8edcf2f261f70d0bf64feef9b620",
+    "expected_branch": "sst/formal-euler-feedback-v0.1.0"
+  },
+  "id": "SST-FV03A",
+  "lean_exit_code": 0,
+  "no_sorryAx_reported": true,
+  "open_gates": [
+    "G3 pressure-Hessian closure",
+    "G4 actual Euler trajectory bridge",
+    "G5 global coverage/incompressibility",
+    "G6 independent verification",
+    "G7 Ruban/numerical CPU and GPU validation"
+  ],
+  "scientific_status": "UNRESOLVED",
+  "scope": "Conditional ODE/PDE-bridge prerequisites; no proof that a free Ruban trefoil or any Euler solution meets the integrated stretching cap.",
+  "stage": "A-conditional-euler-stretching-bound",
+  "status": "PASS_LOCAL_LEAN",
+  "theorem_count_checked": 13,
+  "theorem_count_expected": 13,
+  "theorems": {
+    "SSTFormal.EulerFeedback.aligned_stretch_ignores_skew_part": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.eulerian_norm_bound_from_trajectory_coverage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.eulerian_norm_sq_bound_from_trajectory_coverage": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.scalar_stretching_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.scalar_stretching_upper_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.skew_operator_has_zero_aligned_stretch": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.uniform_material_stretching_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.vorticity_norm_bound_before_endpoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.vorticity_norm_sq_bound_before_endpoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.vorticity_norm_sq_hasDerivAt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.vorticity_norm_sq_scalar_law": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.weightedInvariant_constant_before_endpoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "SSTFormal.EulerFeedback.weightedInvariant_hasDerivAt_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "toolchain_expected": "leanprover/lean4:v4.34.0-rc2",
+  "version": "v0.1.0"
+}
