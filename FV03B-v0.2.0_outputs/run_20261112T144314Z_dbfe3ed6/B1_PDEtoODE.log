@@ -1,0 +1,8 @@
+CMD: lake env lean -o .lake\build\lib\lean\SSTFormal\EulerFeedback\PDEtoODE.olean SSTFormal/EulerFeedback/PDEtoODE.lean
+
+'SSTFormal.EulerFeedback.euler_momentum_implies_curl_balance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SSTFormal.EulerFeedback.euler_momentum_implies_material_curl_rhs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SSTFormal.EulerFeedback.material_chain_rule_to_linear_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SSTFormal.EulerFeedback.smooth_euler_material_vorticity_ode' depends on axioms: [propext, Classical.choice, Quot.sound]

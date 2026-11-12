@@ -1,0 +1,16 @@
+{
+  "id": "SST-FV03B",
+  "version": "v0.2.0",
+  "stage_order": ["B1", "B2", "B3"],
+  "predecessor": {"branch": "sst/formal-euler-feedback-v0.1.0", "commit": "357fd80", "status": "PASS_LOCAL_LEAN_USER_REPORTED"},
+  "expected_branch": "sst/formal-euler-feedback-v0.2.0",
+  "expected_lean_version": "leanprover/lean4:v4.34.0-rc2",
+  "status": "NOT_EXECUTED",
+  "expected_new_theorems": 11,
+  "G2": "UNRESOLVED_UNTIL_ACTUAL_EULER_SOLUTION_INSTANTIATION",
+  "G3": "UNRESOLVED_NONCIRCULAR_STRETCHING_CAP",
+  "G4": "UNRESOLVED_UNTIL_MAXIMAL_EULER_FLOW_INSTANTIATION",
+  "scientific_status": "UNRESOLVED",
+  "independent_assistant_execution": false,
+  "gpu_backend_executed": false
+}

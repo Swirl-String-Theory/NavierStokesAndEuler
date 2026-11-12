@@ -1,0 +1,13 @@
+CMD: lake env lean -o .lake\build\lib\lean\SSTFormal\EulerFeedback\PressureHessian.olean SSTFormal/EulerFeedback/PressureHessian.lean
+
+'SSTFormal.EulerFeedback.gradient_riccati_rhs_norm_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SSTFormal.EulerFeedback.pressure_hessian_balance_at_time' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SSTFormal.EulerFeedback.material_gradient_derivative_norm_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SSTFormal.EulerFeedback.riccati_strain_rotation_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SSTFormal.EulerFeedback.pressure_strain_alignment_of_skew_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

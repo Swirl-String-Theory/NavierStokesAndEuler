@@ -1,0 +1,220 @@
+{
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "checks": {
+    "all_stages_local_pass": true,
+    "gpu_backend_executed": false,
+    "independent_assistant_execution": false,
+    "new_axioms_absent_in_lean_log": true,
+    "physical_stabilization_certified": false,
+    "stage_order": [
+      "B1",
+      "B2",
+      "B3"
+    ]
+  },
+  "gates": [
+    {
+      "id": "GB1_FORMAL_PDE_CHAIN",
+      "justification": "Euler momentum and divergence plus explicit curl-time and joint regularity hypotheses.",
+      "question": "Does the local smooth-Euler curl/momentum calculus imply the material vorticity ODE?",
+      "stage": "B1",
+      "status": "PASS"
+    },
+    {
+      "id": "GB2_RICCATI_IDENTITY",
+      "justification": "Riccati gradient-law remains an explicitly named premise for the derivative theorem.",
+      "question": "Are pressure-Hessian Riccati algebra and norm estimates formalized?",
+      "stage": "B2",
+      "status": "PASS"
+    },
+    {
+      "id": "GB3_FINITE_FLOW_COVERAGE",
+      "justification": "Constructed inverse from Euler.FiniteIntervalFlow; bounded-Lipschitz finite-horizon hypotheses.",
+      "question": "Is material-flow coverage constructed at each finite regular horizon?",
+      "stage": "B3",
+      "status": "PASS"
+    },
+    {
+      "id": "G2_ACTUAL_EULER_INSTANTIATION",
+      "justification": "No dedicated instantiation of Euler.Solution maximal fields in this version.",
+      "question": "Are the curl-time and joint differentiability prerequisites discharged for the particular maximal Euler field?",
+      "status": "UNRESOLVED"
+    },
+    {
+      "id": "G3_NONCIRCULAR_STRETCHING_CAP",
+      "justification": "No sign/coercivity estimate deduced; pressure-Hessian is not intrinsically stabilizing.",
+      "question": "Does pressure-Hessian feedback imply the uniform accumulated stretching cap without assuming regularity?",
+      "status": "UNRESOLVED"
+    },
+    {
+      "id": "G4_MAXIMAL_FLOW_COVERAGE",
+      "justification": "B3 constructs flows given bounded Lipschitz finite-horizon velocity; no Euler.Solution instantiation.",
+      "question": "Is finite-horizon flow coverage instantiated for every S<T* in the particular Euler solution?",
+      "status": "UNRESOLVED"
+    },
+    {
+      "id": "G5_RUBAN",
+      "justification": "No Ruban finite-core field or trajectory simulation in formal proof stage.",
+      "question": "Is a Ruban Trefoil shown to satisfy the cap?",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "G6_CPU_GPU",
+      "justification": "This release contains Lean proof and Python orchestration tests only.",
+      "question": "Did independent reference and Arc/CUDA numerical lanes execute?",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "G7_INDEPENDENT_LEAN",
+      "justification": "Local Lean compile is separate from independent Comparator and CI.",
+      "question": "Was an independent second-kernel/formal rerun performed?",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "git": {
+    "base_commit_expected_ancestor": "357fd80",
+    "branch": "sst/formal-euler-feedback-v0.2.0",
+    "commit": "357fd80721915635a6d00d5150869e73d74d4132"
+  },
+  "id": "SST-FV03B",
+  "notes": [
+    "B1 proves PDE-to-material ODE assuming explicit regularity identities, not instantiation to Euler.Solution.",
+    "B2 formalizes Riccati identity/estimates; no automatic stretching cap.",
+    "B3 constructs finite-horizon coverage for bounded Lipschitz velocities; no uniform endpoint extension.",
+    "Formal Lean PASS is not a numerical, GPU or physics certification."
+  ],
+  "preflight_errors": [],
+  "scientific_status": "UNRESOLVED",
+  "source_sha256": {
+    "SSTFormal\\EulerFeedback\\FlowCoverage.lean": "bdc684ebf9a0b84e9dd42ebffd7fb89c9bde9771d9243f509ea985a6de78f878",
+    "SSTFormal\\EulerFeedback\\PDEtoODE.lean": "6d94dc7b00ec92e4fcfbc4c8aabcd1867f020b7d69c865bae3fe3537efae4c79",
+    "SSTFormal\\EulerFeedback\\PressureHessian.lean": "01529328bdae2d2c697d9da6774baf3823cb3174c16cb352c5a505ca18f80793"
+  },
+  "stage": "B1-B2-B3-sequential",
+  "stages": [
+    {
+      "axioms": {
+        "SSTFormal.EulerFeedback.euler_momentum_implies_curl_balance": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.euler_momentum_implies_material_curl_rhs": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.material_chain_rule_to_linear_ode": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.smooth_euler_material_vorticity_ode": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "errors": [],
+      "expected_theorems": [
+        "euler_momentum_implies_curl_balance",
+        "euler_momentum_implies_material_curl_rhs",
+        "material_chain_rule_to_linear_ode",
+        "smooth_euler_material_vorticity_ode"
+      ],
+      "id": "B1",
+      "lean_exit_code": 0,
+      "log_file": "C:\\workspace\\projects\\NavierStokesAndEuler\\FV03B-v0.2.0_outputs\\run_20261112T144314Z_dbfe3ed6\\B1_PDEtoODE.log",
+      "log_sha256": "0140beed75268837c2d806011fe843ae3672897868bd46b90ff4e246467dd797",
+      "module": "SSTFormal.EulerFeedback.PDEtoODE",
+      "olean_sha256": "23185cc20bb157e01c6a1086efc26eff0a01e570c8a4546f0b603b192487854a",
+      "source": "C:\\workspace\\projects\\NavierStokesAndEuler\\SSTFormal\\EulerFeedback\\PDEtoODE.lean",
+      "source_sha256": "6d94dc7b00ec92e4fcfbc4c8aabcd1867f020b7d69c865bae3fe3537efae4c79",
+      "status": "PASS_LOCAL_LEAN",
+      "theorem_count": 4
+    },
+    {
+      "axioms": {
+        "SSTFormal.EulerFeedback.gradient_riccati_rhs_norm_le": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.material_gradient_derivative_norm_le": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.pressure_hessian_balance_at_time": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.pressure_strain_alignment_of_skew_decomposition": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.riccati_strain_rotation_decomposition": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "errors": [],
+      "expected_theorems": [
+        "gradient_riccati_rhs_norm_le",
+        "pressure_hessian_balance_at_time",
+        "material_gradient_derivative_norm_le",
+        "riccati_strain_rotation_decomposition",
+        "pressure_strain_alignment_of_skew_decomposition"
+      ],
+      "id": "B2",
+      "lean_exit_code": 0,
+      "log_file": "C:\\workspace\\projects\\NavierStokesAndEuler\\FV03B-v0.2.0_outputs\\run_20261112T144314Z_dbfe3ed6\\B2_PressureHessian.log",
+      "log_sha256": "699d729c78ad50e567090aa073d74fc55579642bf97e765cc238a1d6559260d4",
+      "module": "SSTFormal.EulerFeedback.PressureHessian",
+      "olean_sha256": "37d9d3ba615770d9cfe7751434f8873ae6a635371180b1cf920e66e60a968a6d",
+      "source": "C:\\workspace\\projects\\NavierStokesAndEuler\\SSTFormal\\EulerFeedback\\PressureHessian.lean",
+      "source_sha256": "01529328bdae2d2c697d9da6774baf3823cb3174c16cb352c5a505ca18f80793",
+      "status": "PASS_LOCAL_LEAN",
+      "theorem_count": 5
+    },
+    {
+      "axioms": {
+        "SSTFormal.EulerFeedback.finite_horizon_material_bound_implies_eulerian_bound": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "SSTFormal.EulerFeedback.finite_horizon_material_flow_covers_space": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "errors": [],
+      "expected_theorems": [
+        "finite_horizon_material_flow_covers_space",
+        "finite_horizon_material_bound_implies_eulerian_bound"
+      ],
+      "id": "B3",
+      "lean_exit_code": 0,
+      "log_file": "C:\\workspace\\projects\\NavierStokesAndEuler\\FV03B-v0.2.0_outputs\\run_20261112T144314Z_dbfe3ed6\\B3_FlowCoverage.log",
+      "log_sha256": "cd66069a65549c39b3fc364745861001adf1858039b9ab5e16e4302f9ceb77f2",
+      "module": "SSTFormal.EulerFeedback.FlowCoverage",
+      "olean_sha256": "52f53d0135bb28357f4a2403a249384778844dcff9f14e5034b28bdb94d2cfe6",
+      "source": "C:\\workspace\\projects\\NavierStokesAndEuler\\SSTFormal\\EulerFeedback\\FlowCoverage.lean",
+      "source_sha256": "bdc684ebf9a0b84e9dd42ebffd7fb89c9bde9771d9243f509ea985a6de78f878",
+      "status": "PASS_LOCAL_LEAN",
+      "theorem_count": 2
+    }
+  ],
+  "status": "PASS_LOCAL_LEAN",
+  "toolchain_expected": "leanprover/lean4:v4.34.0-rc2",
+  "version": "v0.2.0"
+}

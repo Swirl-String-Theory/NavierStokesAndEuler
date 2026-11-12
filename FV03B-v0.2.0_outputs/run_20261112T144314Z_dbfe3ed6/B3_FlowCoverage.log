@@ -1,0 +1,8 @@
+CMD: lake env lean -o .lake\build\lib\lean\SSTFormal\EulerFeedback\FlowCoverage.olean SSTFormal/EulerFeedback/FlowCoverage.lean
+
+'SSTFormal.EulerFeedback.finite_horizon_material_flow_covers_space' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SSTFormal.EulerFeedback.finite_horizon_material_bound_implies_eulerian_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
