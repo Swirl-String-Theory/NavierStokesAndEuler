@@ -1,24 +1,22 @@
 {
-  "project": "SST-FV01",
-  "version": "0.1.0-starter",
-  "upstream_euler_comparator": {
+  "project": "SST-FV02",
+  "version": "0.2.0-starter",
+  "stage": "A-endpoint-correspondence",
+  "predecessor": {
+    "branch": "sst/formal-passive-clock-v0.1.0",
+    "commit": "f29de7a",
     "status": "PASS_USER_REPORTED",
-    "theorems": [
-      "Euler.euler_breakdown_R3",
-      "Euler.exists_compact_smooth_euler_singularity"
-    ],
-    "accepted_axioms": ["propext", "Classical.choice", "Quot.sound"],
-    "lean_kernel": "PASS_USER_REPORTED",
-    "nanoda_kernel": "PASS_USER_REPORTED",
-    "landrun_linux_sandbox": "NOT_EXECUTED"
+    "axioms": ["propext", "Classical.choice", "Quot.sound"]
   },
-  "sst_fv01": {
-    "status": "PASS_LOCAL_LEAN",
-    "lean_theorems": [
-      "SSTFormal.passiveClock_implies_euler_global",
-      "SSTFormal.passiveClock_breakdown_R3",
-      "SSTFormal.unbounded_iff_after_surjective_time_change"
-    ],
-    "claim_limit": "passive clock only; no active feedback or endpoint limsup theorem"
-  }
+  "theorems": [
+    "SSTFormal.unboundedNearLeft_iff_after_endpoint_clock",
+    "SSTFormal.endpoint_blowup_survives_passive_clock"
+  ],
+  "status": "PASS_LOCAL_LEAN",
+  "open_proof_obligations": [
+    "derive EndpointClockCorrespondence from a strictly positive integrable clock rate and its primitive",
+    "specialize to the ENNReal C1-norm limsup formalized in Euler.Solution",
+    "do not claim anything about active feedback"
+  ],
+  "scope": "pure real-valued endpoint unboundedness under explicit local endpoint correspondence"
 }
