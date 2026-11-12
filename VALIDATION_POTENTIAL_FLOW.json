@@ -2,7 +2,7 @@
   "project": "Euler.PotentialFlow",
   "version": "0.1.0",
   "branch": "feature/euler-potential-flow",
-  "commit": "pending-after-commit",
+  "commit": "46926ca4254dc2f24b5058a2c7ff6904e0a5a7d5",
   "toolchain": {
     "lean": "4.34.0-rc2",
     "mathlib": "v4.34.0-rc2",
