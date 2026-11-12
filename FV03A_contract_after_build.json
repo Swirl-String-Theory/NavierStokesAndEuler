@@ -1,0 +1,412 @@
+{
+  "conclusion": {
+    "limitations": [
+      "A formal conditional upper bound does not prove stability of every smooth Euler solution.",
+      "The premise Phi<=C may fail for the constructed finite-time Euler blowup solution.",
+      "The full spatial bound needs surjective flow coverage and material identification.",
+      "No continuity at T has been assumed or proved.",
+      "PDF generation is not an independent proof execution."
+    ],
+    "next_experiment": "FV03-B formal pressure-Hessian/strain coupling, then FV03-C Ruban Euler trajectories with independent reference and GPU validation.",
+    "observed": "Formal stretching implication has been prepared; local Lean acceptance is attested and audited.",
+    "scientific_status": "UNRESOLVED",
+    "unresolved": "No physical mechanism establishes the required upper bound on integrated stretching. No actual free Ruban Euler evolution is proved to satisfy it."
+  },
+  "contract_version": "1.0.0",
+  "evidence": [
+    {
+      "id": "source_0",
+      "kind": "LEAN_SOURCE",
+      "note": "FV03-A source Byte hash only; no independent Lean execution.",
+      "origin": "C:\\workspace\\projects\\NavierStokesAndEuler\\SSTFormal\\EulerFeedback\\StretchingBound.lean",
+      "sha256": "0bdd4c129f1b1ecb6f081b780b7014677bc667e99fbfe125843ccf9d4dd09f65",
+      "verification": "VERIFIED_LOCAL_SHA256"
+    },
+    {
+      "id": "source_1",
+      "kind": "LEAN_SOURCE",
+      "note": "FV03-A source Byte hash only; no independent Lean execution.",
+      "origin": "C:\\workspace\\projects\\NavierStokesAndEuler\\SSTFormal\\EulerFeedback\\VorticityBound.lean",
+      "sha256": "b6e7db9a36fe376ee97ed68dc92e6c93195b2b69ef2e729625b74c4ae1cdbea3",
+      "verification": "VERIFIED_LOCAL_SHA256"
+    },
+    {
+      "id": "source_2",
+      "kind": "LEAN_SOURCE",
+      "note": "FV03-A source Byte hash only; no independent Lean execution.",
+      "origin": "C:\\workspace\\projects\\NavierStokesAndEuler\\SSTFormal\\EulerFeedback\\EulerianTransfer.lean",
+      "sha256": "324f13c5053f73612f1fa1527f05de05a2238b73faee597a4688eedbe012431d",
+      "verification": "VERIFIED_LOCAL_SHA256"
+    },
+    {
+      "id": "local_build_log",
+      "kind": "LEAN_BUILD_LOG",
+      "note": "Local Lean build output Byte hash only; no independent Lean execution.",
+      "origin": "C:\\workspace\\projects\\NavierStokesAndEuler\\sstformal_eulerfeedback_v0.1.0_build.log",
+      "sha256": "27023e582022348d95260e379566434ae0ccf98638f12a83198649e1b0cd5ddb",
+      "verification": "VERIFIED_LOCAL_SHA256"
+    },
+    {
+      "id": "local_validation",
+      "kind": "LOCAL_AXIOM_AUDIT",
+      "note": "Local post-build theorem axiom audit Byte hash only; no independent Lean execution.",
+      "origin": "C:\\workspace\\projects\\NavierStokesAndEuler\\VALIDATION_FV03A_LOCAL.json",
+      "sha256": "de0e8f178b425547de6d8f2686801abe476b99a831649c69ed69c10ed73b8eb5",
+      "verification": "VERIFIED_LOCAL_SHA256"
+    }
+  ],
+  "family": {
+    "catalog_id": "SST-FV03A",
+    "plugin": "generic",
+    "source_path": "C:\\workspace\\projects\\NavierStokesAndEuler",
+    "title": "EulerFeedback: conditional material vorticity stretching bound",
+    "version": "v0.1.0"
+  },
+  "framework": {
+    "instance_id": null,
+    "manifest_sha256": null,
+    "name": "Lean 4, Mathlib, NavierStokesAndEuler formalization",
+    "reporter_role": "RENDER_ONLY_NO_SCIENCE_PROMOTION",
+    "verification_status": "PASS_LOCAL_LEAN_SOURCE_ATTESTED",
+    "version": "4.34.0-rc2"
+  },
+  "gates": [
+    {
+      "evidence_refs": [
+        "source_0",
+        "source_1",
+        "source_2"
+      ],
+      "id": "G0_SOURCE",
+      "justification": "SHA256 checks only byte identity, not theorem correctness.",
+      "question": "Are all FV03-A source bytes available and hashed?",
+      "status": "PASS"
+    },
+    {
+      "evidence_refs": [
+        "source_0",
+        "source_1",
+        "source_2",
+        "local_build_log",
+        "local_validation"
+      ],
+      "id": "G1_LEAN",
+      "justification": "A verified matching local audit plus build log is required for PASS. No independent CI check.",
+      "question": "Did the local Lean build accept all 13 theorems with permitted axioms?",
+      "status": "PASS"
+    },
+    {
+      "evidence_refs": [],
+      "id": "G2_MATERIAL_ODE",
+      "justification": "This stage assumes D_t omega = (grad u) omega; no PDE bridge is provided.",
+      "question": "Is the material stretching ODE derived from the actual Euler PDE?",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "evidence_refs": [],
+      "id": "G3_HESSIAN",
+      "justification": "The scalar primitive upper bound is a premise, not an Euler pressure-Hessian consequence.",
+      "question": "Is a pressure-Hessian feedback bound sufficient to establish the stretching cap?",
+      "status": "UNRESOLVED"
+    },
+    {
+      "evidence_refs": [],
+      "id": "G4_FLOW",
+      "justification": "Coverage is explicit in the eulerian transfer theorem and not yet discharged.",
+      "question": "Is trajectory coverage/surjectivity proved for the particular Euler field?",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "evidence_refs": [],
+      "id": "G5_RUBAN",
+      "justification": "No Ruban geometry, seed, or Euler trajectory supplied.",
+      "question": "Is a free Ruban Trefoil shown to satisfy the stretching cap?",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "evidence_refs": [],
+      "id": "G6_GPU",
+      "justification": "Formal Lean code does not execute numerical backends.",
+      "question": "Have independent Python/C++ and Intel Arc/CUDA numerical lanes run?",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "evidence_refs": [],
+      "id": "G7_INDEPENDENT",
+      "justification": "The report service renders attestations and checks file hashes only.",
+      "question": "Was the Lean proof rerun independently by the report author?",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "methods": [
+    {
+      "description": "Continuum reference model; the Lean conditional bounds do not themselves construct a 3D Euler solution.",
+      "equations": [
+        {
+          "latex": "\\partial_t\\mathbf u+(\\mathbf u\\cdot\\nabla)\\mathbf u=-\\nabla P,\\quad\\nabla\\cdot\\mathbf u=0",
+          "status": "STANDARD"
+        }
+      ],
+      "name": "Unforced incompressible Euler"
+    },
+    {
+      "description": "Assumed Euler trajectory identity for the operator A(t)=grad u along a material trajectory; this must later be proved in the PDE bridge.",
+      "equations": [
+        {
+          "latex": "\\frac{D\\boldsymbol\\omega}{Dt}=A\\boldsymbol\\omega,\\qquad A=\\nabla\\mathbf u",
+          "status": "STANDARD"
+        }
+      ],
+      "name": "Material vorticity stretching"
+    },
+    {
+      "description": "The aligned stretching rate is defined only when nonzero vorticity; the Lean squared-norm identity avoids dividing by zero.",
+      "equations": [
+        {
+          "caption": "sigma [s^-1]; Phi dimensionless.",
+          "latex": "\\sigma_{\\parallel}=\\frac{\\langle\\boldsymbol\\omega,A\\boldsymbol\\omega\\rangle}{\\|\\boldsymbol\\omega\\|^2},\\quad \\Phi(t)=\\int_0^t\\sigma_{\\parallel}(s)\\,ds",
+          "status": "DEFINED"
+        }
+      ],
+      "name": "Aligned stretching and cumulative stretching"
+    },
+    {
+      "description": "Proved for a material-vector ODE when the aligned-rate primitive exists and is uniformly upper bounded on the half-open interval.",
+      "equations": [
+        {
+          "caption": "Not proved that any specific Euler solution satisfies Phi <= C.",
+          "latex": "\\Phi(t)\\leq C\\quad(0\\leq t<T)\\quad\\Longrightarrow\\quad \\|\\boldsymbol\\omega(t)\\|\\leq \\|\\boldsymbol\\omega(0)\\|e^C",
+          "status": "DEFINED"
+        }
+      ],
+      "name": "Conditional stretching bound"
+    },
+    {
+      "description": "A spatial supremum bound additionally requires exact trajectory coverage and identification of the transported field.",
+      "equations": [
+        {
+          "caption": "These hypotheses are OPEN for the Euler PDE bridge.",
+          "latex": "X(t,\\cdot)\\ \\text{surjective},\\qquad \\boldsymbol\\omega(t,X(t,a))=\\boldsymbol\\omega_a(t)",
+          "status": "DEFINED"
+        }
+      ],
+      "name": "Full-space transfer"
+    }
+  ],
+  "raw_source": {
+    "base_branch": "sst/formal-clock-euler-c1limsup-v0.5.0",
+    "base_commit": "65f0c27",
+    "branch": "sst/formal-euler-feedback-v0.1.0",
+    "gates": {
+      "G0_SOURCE": "PASS",
+      "G1_LEAN": "PASS",
+      "G2_MATERIAL_ODE": "NOT_EXECUTED",
+      "G3_HESSIAN": "UNRESOLVED",
+      "G4_FLOW": "NOT_EXECUTED",
+      "G5_RUBAN": "NOT_EXECUTED",
+      "G6_GPU": "NOT_EXECUTED",
+      "G7_INDEPENDENT": "NOT_EXECUTED"
+    },
+    "inputs": {
+      "A": "time-dependent bounded linear velocity-gradient operator along a material trajectory",
+      "Phi": "primitive Phi(0)=0, Phi_prime(t)=sigma(t) for 0<t<T",
+      "T": "finite positive time endpoint; all claims for 0<=t<T",
+      "bound": "uniform in time and labels: Phi(t)<=C",
+      "constants": "No dimensional SST/particle constants used in Lean",
+      "no_end_time_smoothness": "No continuity/differentiability at t=T assumed",
+      "sigma": "aligned stretching rate via vector inner product"
+    },
+    "local_validation": {
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "errors": [],
+      "evidence": {
+        "build_log": "C:\\workspace\\projects\\NavierStokesAndEuler\\sstformal_eulerfeedback_v0.1.0_build.log",
+        "build_log_sha256": "27023e582022348d95260e379566434ae0ccf98638f12a83198649e1b0cd5ddb",
+        "source_sha256": {
+          "SSTFormal/EulerFeedback/EulerianTransfer.lean": "324f13c5053f73612f1fa1527f05de05a2238b73faee597a4688eedbe012431d",
+          "SSTFormal/EulerFeedback/StretchingBound.lean": "0bdd4c129f1b1ecb6f081b780b7014677bc667e99fbfe125843ccf9d4dd09f65",
+          "SSTFormal/EulerFeedback/VorticityBound.lean": "b6e7db9a36fe376ee97ed68dc92e6c93195b2b69ef2e729625b74c4ae1cdbea3"
+        }
+      },
+      "execution": {
+        "comparator_executed": false,
+        "executed_by": "user_local",
+        "gpu_backend_executed": false,
+        "independent_assistant_execution": false
+      },
+      "git": {
+        "branch": "sst/formal-euler-feedback-v0.1.0",
+        "commit": "65f0c271725f8edcf2f261f70d0bf64feef9b620",
+        "expected_branch": "sst/formal-euler-feedback-v0.1.0"
+      },
+      "id": "SST-FV03A",
+      "lean_exit_code": 0,
+      "no_sorryAx_reported": true,
+      "open_gates": [
+        "G3 pressure-Hessian closure",
+        "G4 actual Euler trajectory bridge",
+        "G5 global coverage/incompressibility",
+        "G6 independent verification",
+        "G7 Ruban/numerical CPU and GPU validation"
+      ],
+      "scientific_status": "UNRESOLVED",
+      "scope": "Conditional ODE/PDE-bridge prerequisites; no proof that a free Ruban trefoil or any Euler solution meets the integrated stretching cap.",
+      "stage": "A-conditional-euler-stretching-bound",
+      "status": "PASS_LOCAL_LEAN",
+      "theorem_count_checked": 13,
+      "theorem_count_expected": 13,
+      "theorems": {
+        "SSTFormal.EulerFeedback.aligned_stretch_ignores_skew_part": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.eulerian_norm_bound_from_trajectory_coverage": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.eulerian_norm_sq_bound_from_trajectory_coverage": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.scalar_stretching_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.scalar_stretching_upper_bound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.skew_operator_has_zero_aligned_stretch": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.uniform_material_stretching_bound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.vorticity_norm_bound_before_endpoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.vorticity_norm_sq_bound_before_endpoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.vorticity_norm_sq_hasDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.vorticity_norm_sq_scalar_law": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.weightedInvariant_constant_before_endpoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SSTFormal.EulerFeedback.weightedInvariant_hasDerivAt_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "toolchain_expected": "leanprover/lean4:v4.34.0-rc2",
+      "version": "v0.1.0"
+    },
+    "open_proof_obligations": [
+      "Derive A=grad u on actual Euler material path",
+      "Prove global flow coverage without assuming endpoint regularity",
+      "Establish Phi<=C from pressure-Hessian feedback",
+      "Test Ruban, independently on Python/C++ and Arc/CUDA"
+    ],
+    "phase": "FV03-A",
+    "stage": "conditional stretching bound",
+    "status": "PASS_LOCAL_LEAN",
+    "theorems": [
+      "weightedInvariant_hasDerivAt_zero",
+      "weightedInvariant_constant_before_endpoint",
+      "scalar_stretching_identity",
+      "scalar_stretching_upper_bound",
+      "uniform_material_stretching_bound",
+      "skew_operator_has_zero_aligned_stretch",
+      "aligned_stretch_ignores_skew_part",
+      "vorticity_norm_sq_hasDerivAt",
+      "vorticity_norm_sq_scalar_law",
+      "vorticity_norm_sq_bound_before_endpoint",
+      "vorticity_norm_bound_before_endpoint",
+      "eulerian_norm_sq_bound_from_trajectory_coverage",
+      "eulerian_norm_bound_from_trajectory_coverage"
+    ]
+  },
+  "references": [
+    {
+      "citation": "J. T. Beale, T. Kato, A. Majda (1984), Remarks on the breakdown of smooth solutions for the 3-D Euler equations, Communications in Mathematical Physics 94, 61-66. DOI 10.1007/BF01212349.",
+      "key": "BKM1984"
+    },
+    {
+      "citation": "P. G. Saffman (1992), Vortex Dynamics, Cambridge University Press. DOI 10.1017/CBO9780511624063.",
+      "key": "Saffman1992"
+    },
+    {
+      "citation": "OpenAI (2026), Finite Time Blowup for the Euler Equation, formalization repository https://github.com/openai/NavierStokesAndEuler.",
+      "key": "EulerFormal2026"
+    }
+  ],
+  "report_id": "SSTFormal-FV03A-v010-0bdd4c129f1b",
+  "report_options": {
+    "include_contract_appendix": true,
+    "language": "en",
+    "title": "SST-FV03A - EulerFeedback Conditional Vorticity Stretching"
+  },
+  "research": {
+    "falsification_criterion": "Fail the formal stage on Lean typecheck errors, disallowed axioms, missing audit, or an invalid transported-vorticity premise; no physical stability claim is permitted without demonstrating the uniform stretching cap.",
+    "hypothesis": "A conditional bounded-stretching implication follows for material vorticity, and propagates to full space when flow coverage is separately established.",
+    "question": "Does a uniform upper bound on material integrated vorticity stretching imply a finite bound on actual Eulerian vorticity before a possible singular endpoint?",
+    "scope": "Conditional proof only; finite time t<T. No established pressure-Hessian closure, no Ruban stability claim, no numerical solver execution."
+  },
+  "runs": [
+    {
+      "backend": "Lean 4 / Mathlib (local user)",
+      "configuration": {
+        "A": "time-dependent bounded linear velocity-gradient operator along a material trajectory",
+        "Phi": "primitive Phi(0)=0, Phi_prime(t)=sigma(t) for 0<t<T",
+        "T": "finite positive time endpoint; all claims for 0<=t<T",
+        "bound": "uniform in time and labels: Phi(t)<=C",
+        "constants": "No dimensional SST/particle constants used in Lean",
+        "no_end_time_smoothness": "No continuity/differentiability at t=T assumed",
+        "sigma": "aligned stretching rate via vector inner product"
+      },
+      "evidence_refs": [
+        "source_0",
+        "source_1",
+        "source_2",
+        "local_build_log",
+        "local_validation"
+      ],
+      "id": "FV03A_LOCAL_LEAN",
+      "metrics": {
+        "theorem_count": 13,
+        "verified_local_audit": true
+      },
+      "note": "User-local axioms and source hashes only; no independent assistant execution.",
+      "status": "PASS"
+    }
+  ],
+  "series": []
+}

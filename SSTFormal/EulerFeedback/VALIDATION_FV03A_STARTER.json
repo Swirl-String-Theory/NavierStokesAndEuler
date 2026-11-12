@@ -1,0 +1,50 @@
+{
+  "id": "SST-FV03A",
+  "name": "SSTFormal EulerFeedback",
+  "version": "v0.1.0",
+  "stage": "A-conditional-euler-stretching-bound",
+  "predecessor": {
+    "branch": "sst/formal-clock-euler-c1limsup-v0.5.0",
+    "commit": "65f0c27",
+    "status": "PASS_LOCAL_LEAN_USER_REPORTED"
+  },
+  "expected_branch": "sst/formal-euler-feedback-v0.1.0",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "new_theorem_count": 13,
+  "lean_build_status": "NOT_EXECUTED",
+  "python_static_test_status": "PASS_7_OF_7",
+  "report_contract_schema_status": "PASS_STATIC",
+  "installation_dry_run_and_conflict_check": "PASS_STATIC",
+  "independent_assistant_execution": false,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "forbidden_tactics": [
+    "sorry",
+    "admit"
+  ],
+  "mathematical_scope": "Conditional stretching bound on [0,T), without assuming endpoint T smoothness. The assumed material ODE and uniform integrated upper bound are NOT derived from Euler pressure or Ruban geometry.",
+  "gates": {
+    "G0_SOURCE": "PASS_STATIC",
+    "G1_LEAN": "NOT_EXECUTED",
+    "G2_EULER_PDE_MATERIAL_BRIDGE": "NOT_EXECUTED",
+    "G3_PRESSURE_HESSIAN": "UNRESOLVED",
+    "G4_SPATIAL_COVERAGE": "NOT_EXECUTED",
+    "G5_RUBAN_STABILITY": "NOT_EXECUTED",
+    "G6_CPU_GPU": "NOT_EXECUTED",
+    "G7_INDEPENDENT_PROOF": "NOT_EXECUTED"
+  },
+  "inputs": {
+    "T": "finite positive time T; theorems quantify only t in [0,T)",
+    "w": "nonnegative norm/squared norm",
+    "sigma": "trajectory-aligned stretch rate, units s^-1",
+    "Phi": "integrated stretch primitive Phi(0)=0 and Phi_prime=sigma on (0,T), dimensionless",
+    "cap": "Phi(t)<=C uniformly on material labels and t<T",
+    "A": "continuous linear operator; Euler application requires proof A(t)=grad u(t,X(t,a))",
+    "flow_coverage": "explicit hypothesis for Eulerian transfer, not proved"
+  },
+  "no_implicit_certification": true,
+  "reporting_app": "app_07-v0.2.1 report_contract_v1.schema.json using generic plugin"
+}
