@@ -1,0 +1,53 @@
+{
+  "project": "Euler.PotentialFlow",
+  "version": "0.1.0",
+  "branch": "feature/euler-potential-flow",
+  "commit": "46926ca4254dc2f24b5058a2c7ff6904e0a5a7d5",
+  "toolchain": {
+    "lean": "4.34.0-rc2",
+    "mathlib": "v4.34.0-rc2",
+    "comparator": "v4.34.0-rc2"
+  },
+  "gates": {
+    "P0": "PASS",
+    "P1": "PASS",
+    "P2": "PASS",
+    "P3": "PASS",
+    "P4": "PASS",
+    "P5": "PASS",
+    "P6": "PASS",
+    "P7": "PASS",
+    "P8": "FAIL"
+  },
+  "gate_notes": {
+    "P0": "lake exe cache get succeeded; Mathlib cache present; baseline environment compiles",
+    "P1": "Definitions.lean compiles via lake build Euler.PotentialFlow.Definitions",
+    "P2": "curl_potentialVelocity proved in GradientCurl.lean",
+    "P3": "divergence_potentialVelocity_eq_laplacian and harmonicity equivalence in Laplace.lean",
+    "P4": "convectiveAccel_potentialVelocity + bernoulli_reduction / gradient_bernoulli_eq_zero_of_euler; C(t) not forced to 0",
+    "P5": "ExteriorDomain + Circulation; planar vortex circulation 2π proved; general knotted 3D homology BLOCKED",
+    "P6": "VortexCoreCoupling interface only; Hodge open obligation UNRESOLVED; no unfounded claims",
+    "P7": "No edits to singularity/BaseEuler/NavierStokes/Comparator science modules; PotentialFlow additive only; SolutionDefinitions still compiles",
+    "P8": "lake build Euler.PotentialFlow PASS; full default lake build FAIL on pre-existing unrelated targets (NavierStokes.* / Euler.*NoOptions / ComparatorChallenges.NavierStokes), not caused by PotentialFlow"
+  },
+  "proved_theorems": [
+    "Euler.PotentialFlow.curl_potentialVelocity",
+    "Euler.PotentialFlow.divergence_potentialVelocity_eq_laplacian",
+    "Euler.PotentialFlow.div_free_potentialVelocity_iff_harmonic",
+    "Euler.PotentialFlow.convectiveAccel_potentialVelocity",
+    "Euler.PotentialFlow.exists_bernoulli_spatial_constant",
+    "Euler.PotentialFlow.bernoulli_reduction",
+    "Euler.PotentialFlow.gradient_bernoulli_eq_zero_of_euler",
+    "Euler.PotentialFlow.vortex_circulation_unitCircle",
+    "Euler.PotentialFlow.coupling_exterior_irrotational"
+  ],
+  "open_proof_obligations": [
+    "BLOCKED: general 3D knotted-exterior circulation vs global scalar potential (de Rham/homology)",
+    "UNRESOLVED: full Hodge/Helmholtz decomposition on knotted exteriors",
+    "deferred: Ruban Trefoil geometry adapter",
+    "not executed: Python/C++ and CUDA numerical validation paths"
+  ],
+  "lake_potential_flow": "PASS",
+  "lake_full_default": "FAIL_PREEXISTING",
+  "scope": "Additive Euler/PotentialFlow formalization; no changes to singularity proofs, SST-Workbench, or Framework v1.1.2"
+}
