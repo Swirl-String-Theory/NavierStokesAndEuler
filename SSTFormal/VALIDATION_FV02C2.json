@@ -1,0 +1,46 @@
+{
+  "id": "SST-FV02-C2",
+  "name": "SSTFormal ClockEndpoint Euler C1 ENNReal Limsup",
+  "version": "v0.5.0",
+  "stage": "C2-filter-limsup",
+  "predecessor": {
+    "branch": "sst/formal-clock-euler-c1-v0.4.0",
+    "commit_user_reported": "6be6f19",
+    "status": "PASS_LOCAL_LEAN_USER_REPORTED"
+  },
+  "branch_target": "sst/formal-clock-euler-c1limsup-v0.5.0",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "status": "PASS_LOCAL_LEAN",
+  "execution": {
+    "script": "run_sstformal_clockeulerc1limsup_v0.5.0.cmd",
+    "lean_exit_code": 0,
+    "executed_by": "local",
+    "proof_axioms_checked": true,
+    "independent_assistant_execution": false,
+    "accepted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+    "local_fix": [
+      "replace invalid Filter.map(...).Limsup projection with rw [← Filter.limsup_comp]"
+    ]
+  },
+  "theorem_targets": [
+    "SSTFormal.enn_limsup_eq_top_of_unboundedNearLeft",
+    "SSTFormal.eulerC1ENN_limsup_before_integrated_clock",
+    "SSTFormal.eulerC1ENN_limsup_after_integrated_clock"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "forbidden": [
+    "sorryAx",
+    "new axioms",
+    "circular quantum/SST calibration inputs"
+  ],
+  "open_obligations": [
+    "spatially dependent operational clocks and global foliation",
+    "almost-everywhere positive L1 clock rate",
+    "active feedback is not modeled or tested"
+  ],
+  "scope": "global positive continuous passive scalar rate; literal Filter.limsup equals top after inverse clock"
+}
