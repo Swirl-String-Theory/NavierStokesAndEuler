@@ -51,10 +51,41 @@ class TestPotentialFlowPreflight(unittest.TestCase):
             self.skipTest("validation report not written yet")
         data = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(data.get("project"), "Euler.PotentialFlow")
+        self.assertEqual(data.get("version"), "0.1.1")
         gates = data.get("gates", {})
-        for key in ["P0", "P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"]:
+        for key in [
+            "P0",
+            "P1",
+            "P2",
+            "P3",
+            "P4",
+            "P5",
+            "P6",
+            "P7",
+            "P8",
+            "P9",
+            "P10",
+        ]:
             self.assertIn(key, gates)
             self.assertIn(gates[key], ["PASS", "FAIL", "BLOCKED", "UNRESOLVED"])
+
+    def test_no_vacuous_reconstruction_true(self) -> None:
+        text = (PF / "VortexCoreCoupling.lean").read_text(encoding="utf-8")
+        self.assertNotIn("reconstruction : Prop := True", text)
+        self.assertIn("helmholtzHodge_divergence_of_reconstruction", text)
+
+    def test_circulation_unconditional_and_no_global_potential(self) -> None:
+        text = (PF / "Circulation.lean").read_text(encoding="utf-8")
+        self.assertIn("curl_free_vortexVelocity2D", text)
+        self.assertIn("not_hasGlobalScalarPotential2D_vortexVelocity2D", text)
+        self.assertIn(
+            "theorem local_irrotational_with_nonzero_circulation :", text
+        )
+
+    def test_bernoulli_joint_contDiff_reduction(self) -> None:
+        text = (PF / "Bernoulli.lean").read_text(encoding="utf-8")
+        self.assertIn("deriv_potentialVelocity_eq_gradient_deriv", text)
+        self.assertIn("bernoulli_reduction_of_joint_contDiff", text)
 
 
 if __name__ == "__main__":
